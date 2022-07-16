@@ -28,9 +28,28 @@ config = {
 
 firebase = pyrebase.initialize_app(config)
 db = firebase.database()
-data = db.child("PresentList").get().val()
-data_json = json.loads(json.dumps(data))
+data1 = db.child("data").get().val()
+data2 = db.child("student_info").get().val()
+attend = json.loads(json.dumps(data1))
+student_info = json.loads(json.dumps(data2))
 
+def fetch_data(branch,sem,date):
+    headings = ('USN','NAME','SEM','BRANCH','SESSION 1','SESSION 2','DATE')
+    att_data = []
+    fd = attend[branch][sem][date]
+    fd_keys = fd.keys()
+    for j in fd_keys:
+        temp = []
+        temp.append(j)
+        temp.append(student_info[branch][sem][j]["name"])
+        temp.append(sem)
+        temp.append(branch)
+        temp.append(fd[j]['s1'])
+        temp.append(fd[j]['s2'])
+        temp.append(date)
+        att_data.append(tuple(temp))
+
+    
 
 
 @app.route('/')

@@ -1,0 +1,34 @@
+{
+  "data": {
+    "cse": {
+      "sem5": {
+          "16-7-2022": {
+              "1kt18cs011": {
+                "s1": false,
+                "s2": true
+              },
+              "1kt18cs004": {
+                "s1": false,
+                "s2": true
+              }
+            }
+          }
+      }
+    },
+  "student_info": {
+      "cse": {
+        "sem5":{
+            "1kt18cs011": {
+            "dept": "cse",
+            "name": "Amit",
+            "usn,": "1kt18is011"
+          },
+          "1kt18cs004": {
+            "dept": "cse",
+            "name": "Diwan",
+            "usn": "1kt18is004"
+          }
+        }
+      }
+    }
+}

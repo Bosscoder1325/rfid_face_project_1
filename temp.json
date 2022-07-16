@@ -31,4 +31,10 @@
 
 
 
-
+data 
+     branch
+             sem
+                 date
+                     usn
+                         S1
+                         S2

@@ -1,67 +1,211 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
     <title>Dashboard - Brand</title>
     <link
-    href="{{url_for('static', filename = 'bootstrap.min.css')}}"
-    rel="stylesheet"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+      href="{{url_for('static', filename = 'bootstrap.min.css')}}"
+      rel="stylesheet"
+    />
     <link
-    href="{{url_for('static', filename = 'fonts/fontawesome-all.min.css')}}"
-    rel="stylesheet"/>
-    <link rel="stylesheet" href="{{url_for('static', filename = 'Contact-Form-Clean.css')}}" rel="stylesheet"/>
-    <link rel="stylesheet" href="{{url_for('static', filename = 'Login-Form-Clean.css')}}" rel="stylesheet"/> 
-    <link rel="stylesheet" href="{{url_for('static', filename = 'Login-Red.css')}}" rel="stylesheet"/> 
-</head>
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    />
+    <link
+      href="{{url_for('static', filename = 'fonts/fontawesome-all.min.css')}}"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename = 'Contact-Form-Clean.css')}}"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename = 'Login-Form-Clean.css')}}"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename = 'Login-Red.css')}}"
+      rel="stylesheet"
+    />
+  </head>
 
-<body id="page-top">
+  <body id="page-top">
     <div id="wrapper">
-        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background: rgba(40,16,59,0.95);">
-            <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
-                    <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink"></i></div>
-                    <div class="sidebar-brand-text mx-3"><span>SKIT</span></div>
-                </a>
-                <hr class="sidebar-divider my-0">
-                <div class="container" style="padding-right: 0px;padding-left: 0px;margin-top: 30px;padding-top: 10px;padding-bottom: 0px;border-radius: 30px;box-shadow: 0px 0px 4px 2px;border-style: none;">
-                    <div class="dropdown" style="padding: 20px;margin: 10px;"><a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="color: var(--bs-light);">department</a>
-                        <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
-                    </div>
-                    <div class="dropdown" style="padding: 20px;margin: 10px;"><a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="color: var(--bs-light);">semester</a>
-                        <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
-                    </div><input type="date" style="padding: 20px;margin: 10px;background: rgba(40,16,59,0.95);color: rgb(255,255,255);border-radius: 0;border-style: none;"><button class="btn btn-primary text-center" type="button" style="padding: 20px;margin: 10px;background: #333333;">submit</button>
-                </div>
+      <nav
+        class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0"
+        style="background: rgba(40, 16, 59, 0.95)"
+      >
+        <div class="container-fluid d-flex flex-column p-0">
+          <a
+            class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0"
+            href="#"
+          >
+            <div class="sidebar-brand-icon rotate-n-15">
+              <i class="fas fa-laugh-wink"></i>
             </div>
-        </nav>
-        <div class="d-flex flex-column" id="content-wrapper">
-            <div id="content" style="width: 759px;">
-                <nav class="navbar navbar-light navbar-expand-md">
-                    <div class="container-fluid"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-                        <div class="collapse navbar-collapse" id="navcol-1">
-                            <ul class="navbar-nav">
-                                <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">Analysis</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">Sign out</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-                <div class="container-fluid">
-                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 class="text-dark mb-0">Dashboard</h3>
-                    </div>
-                    <div class="row">
-                        <p>data:{{data}}</p>
-                    </div>
-                </div>
+            <div class="sidebar-brand-text mx-3"><span>SKIT</span></div>
+          </a>
+          <hr class="sidebar-divider my-0" />
+          <div
+            class="container"
+            style="
+              padding-right: 0px;
+              padding-left: 0px;
+              margin-top: 30px;
+              padding-top: 10px;
+              padding-bottom: 0px;
+              border-radius: 30px;
+              box-shadow: 0px 0px 4px 2px;
+              border-style: none;
+            "
+          >
+            <div class="dropdown" style="padding: 20px; margin: 10px">
+              <a
+                class="dropdown-toggle"
+                aria-expanded="false"
+                data-bs-toggle="dropdown"
+                href="#"
+                style="color: var(--bs-light)"
+                >department</a
+              >
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">First Item</a
+                ><a class="dropdown-item" href="#">Second Item</a
+                ><a class="dropdown-item" href="#">Third Item</a>
+              </div>
             </div>
+            <div class="dropdown" style="padding: 20px; margin: 10px">
+              <a
+                class="dropdown-toggle"
+                aria-expanded="false"
+                data-bs-toggle="dropdown"
+                href="#"
+                style="color: var(--bs-light)"
+                >semester</a
+              >
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">First Item</a
+                ><a class="dropdown-item" href="#">Second Item</a
+                ><a class="dropdown-item" href="#">Third Item</a>
+              </div>
+            </div>
+            <input
+              type="date"
+              style="
+                padding: 20px;
+                margin: 10px;
+                background: rgba(40, 16, 59, 0.95);
+                color: rgb(255, 255, 255);
+                border-radius: 0;
+                border-style: none;
+              "
+            /><button
+              class="btn btn-primary text-center"
+              type="button"
+              style="padding: 20px; margin: 10px; background: #333333"
+            >
+              submit
+            </button>
+          </div>
         </div>
+        <form
+          method="post"
+          style="background: rgba(40, 16, 59, 0.95); border-radius: 30px"
+        >
+          <h2 class="text-center" style="color: rgb(217, 218, 230)">
+            UPDATE DATA
+          </h2>
+          <div class="mb-3">
+            <input
+              class="form-control"
+              type="text"
+              name="name"
+              placeholder="Name"
+            />
+          </div>
+          <div class="mb-3">
+            <button
+              class="btn"
+              type="button"
+              style="
+                background: #495057;
+                padding: 15px 30px;
+                color: #ffffff;
+                min-width: auto;
+                width: auto;
+                height: auto;
+                font-size: 15px;
+              "
+            >
+              update</button
+            ><button
+              class="btn"
+              type="button"
+              style="
+                background: #495057;
+                color: #ffffff;
+                padding: 15px 30px;
+                margin-left: 10px;
+                min-width: auto;
+                width: auto;
+                height: auto;
+                font-size: 15px;
+              "
+            >
+              cancel
+            </button>
+          </div>
+        </form>
+      </nav>
+      <div class="d-flex flex-column" id="content-wrapper">
+        <div id="content" style="width: 759px">
+          <nav class="navbar navbar-light navbar-expand-md">
+            <div class="container-fluid">
+              <button
+                data-bs-toggle="collapse"
+                class="navbar-toggler"
+                data-bs-target="#navcol-1"
+              >
+                <span class="visually-hidden">Toggle navigation</span
+                ><span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Analysis</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Sign out</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+          <div class="container-fluid">
+            <div
+              class="d-sm-flex justify-content-between align-items-center mb-4"
+            >
+              <h3 class="text-dark mb-0">Dashboard</h3>
+            </div>
+            <div class="row">
+              <p>data:{{data}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="{{url_for('static', filename='bootstrap.min.js')}}"></script>
     <script src="{{url_for('static', filename='theme.js')}}"></script>
-</body>
-
+  </body>
 </html>
