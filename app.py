@@ -34,7 +34,7 @@ attend = json.loads(json.dumps(data1))
 student_info = json.loads(json.dumps(data2))
 
 
-@app.route('/',)
+@app.route('/',methods = ['POST','GET'])
 def fetch_data(branch,sem,date):
     headings = ('USN','NAME','SEM','BRANCH','SESSION 1','SESSION 2','DATE')
     att_data = []
@@ -54,11 +54,11 @@ def fetch_data(branch,sem,date):
     return render_template('index.html',data = att_data)
 
 
-@app.route('/')
-# ‘/’ URL is bound with hello_world() function.
-def hello_world():
-    data = db.child("data").get().val()
-    return render_template('index.html',data=data) 
+# @app.route('/')
+# # ‘/’ URL is bound with hello_world() function.
+# def hello_world():
+#     data = db.child("data").get().val()
+#     return render_template('index.html',data=data) 
 
 
 # main driver function
