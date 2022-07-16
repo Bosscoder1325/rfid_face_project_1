@@ -33,6 +33,8 @@ data2 = db.child("student_info").get().val()
 attend = json.loads(json.dumps(data1))
 student_info = json.loads(json.dumps(data2))
 
+
+@app.route('/',)
 def fetch_data(branch,sem,date):
     headings = ('USN','NAME','SEM','BRANCH','SESSION 1','SESSION 2','DATE')
     att_data = []
@@ -49,7 +51,7 @@ def fetch_data(branch,sem,date):
         temp.append(date)
         att_data.append(tuple(temp))
 
-    
+    return render_template('index.html',data = att_data)
 
 
 @app.route('/')
