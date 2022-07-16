@@ -36,35 +36,39 @@ student_info = json.loads(json.dumps(data2))
 
 @app.route('/', methods=['POST', 'GET'])
 def fetch_data():
+    branch = sem = date = ""
+    att_data = []
+    headings = ('USN', 'NAME', 'SEM', 'BRANCH','SESSION 1', 'SESSION 2', 'DATE')
     if request.method == "POST":
         # getting input with name = fname in HTML form
         branch = request.form.get("branch")
         sem = request.form.get("sem")
         date = request.form.get("date")
 
-    headings = ('USN','NAME','SEM','BRANCH','SESSION 1','SESSION 2','DATE')
-    att_data = []
-    fd = attend[branch][sem][date]
-    fd_keys = fd.keys()
-    for j in fd_keys:
-        temp = []
-        temp.append(j)
-        temp.append(student_info[branch][sem][j]["name"])
-        temp.append(sem)
-        temp.append(branch)
-        temp.append(fd[j]['s1'])
-        temp.append(fd[j]['s2'])
-        temp.append(date)
-        att_data.append(tuple(temp))
+        print(branch, sem, date)
 
-    return render_template('index.html', data= att_data)
+        
+
+        fd = attend[branch][sem][date]
+        fd_keys = fd.keys()
+        for j in fd_keys:
+            temp = []
+            temp.append(j)
+            temp.append(student_info[branch][sem][j]["name"])
+            temp.append(sem)
+            temp.append(branch)
+            temp.append(fd[j]['s1'])
+            temp.append(fd[j]['s2'])
+            temp.append(date)
+            att_data.append(tuple(temp))
+
+    return render_template('index.html', headings = headings , rows = att_data)
 
 
 # @app.route('/')
 # # ‘/’ URL is bound with hello_world() function.
 # def hello_world():
-#     data = db.child("data").get().val()
-#     return render_template('index.html',data=data)
+#     return render_template('index.html')
 
 
 # main driver function

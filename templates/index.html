@@ -88,6 +88,7 @@
             <button
               class="btn"
               type="submit"
+              name="submit"
               style="
                 background: #495057;
                 padding: 15px 30px;
@@ -138,6 +139,23 @@
             </div>
             <div class="row">
               <p>data:{{data}}</p>
+
+              <!-- table code -->
+              <table>
+                
+                <tr>
+                    {% for header in headings %}
+                    <th>{{header}}</th>
+                    {% endfor %}
+                </tr>
+                {% for row in rows %}
+                <tr>
+                    {% for cell in row %}
+                    <td>{{cell}}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+              </table>
             </div>
           </div>
         </div>
