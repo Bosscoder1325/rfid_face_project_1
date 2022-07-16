@@ -35,23 +35,24 @@ student_info = json.loads(json.dumps(data2))
 
 
 @app.route('/',methods = ['POST','GET'])
-def fetch_data(branch,sem,date):
-    headings = ('USN','NAME','SEM','BRANCH','SESSION 1','SESSION 2','DATE')
-    att_data = []
-    fd = attend[branch][sem][date]
-    fd_keys = fd.keys()
-    for j in fd_keys:
-        temp = []
-        temp.append(j)
-        temp.append(student_info[branch][sem][j]["name"])
-        temp.append(sem)
-        temp.append(branch)
-        temp.append(fd[j]['s1'])
-        temp.append(fd[j]['s2'])
-        temp.append(date)
-        att_data.append(tuple(temp))
+def fetch_data():
+    pass
+    # headings = ('USN','NAME','SEM','BRANCH','SESSION 1','SESSION 2','DATE')
+    # att_data = []
+    # fd = attend[branch][sem][date]
+    # fd_keys = fd.keys()
+    # for j in fd_keys:
+    #     temp = []
+    #     temp.append(j)
+    #     temp.append(student_info[branch][sem][j]["name"])
+    #     temp.append(sem)
+    #     temp.append(branch)
+    #     temp.append(fd[j]['s1'])
+    #     temp.append(fd[j]['s2'])
+    #     temp.append(date)
+    #     att_data.append(tuple(temp))
 
-    return render_template('index.html',data = att_data)
+    return render_template('index.html')
 
 
 # @app.route('/')
