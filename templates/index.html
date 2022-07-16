@@ -54,76 +54,16 @@
           </a>
           <hr class="sidebar-divider my-0" />
           <form
+            action="{{ url_for("fetch_data")}}"
             method="post"
             style="background: rgba(40, 16, 59, 0.95); border-radius: 30px"
           >
-            <!-- <div
-              class="container"
-              style="
-                padding-right: 0px;
-                padding-left: 0px;
-                margin-top: 30px;
-                padding-top: 10px;
-                padding-bottom: 0px;
-                border-radius: 30px;
-                box-shadow: 0px 0px 4px 2px;
-                border-style: none;
-              "
-            >
-              <div class="dropdown" style="padding: 20px; margin: 10px">
-                <a
-                  class="dropdown-toggle"
-                  aria-expanded="false"
-                  data-bs-toggle="dropdown"
-                  href="#"
-                  style="color: var(--bs-light)"
-                  >department</a
-                >
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">First Item</a
-                  ><a class="dropdown-item" href="#">Second Item</a
-                  ><a class="dropdown-item" href="#">Third Item</a>
-                </div>
-              </div>
-              <div class="dropdown" style="padding: 20px; margin: 10px">
-                <a
-                  class="dropdown-toggle"
-                  aria-expanded="false"
-                  data-bs-toggle="dropdown"
-                  href="#"
-                  style="color: var(--bs-light)"
-                  >semester</a
-                >
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">First Item</a
-                  ><a class="dropdown-item" href="#">Second Item</a
-                  ><a class="dropdown-item" href="#">Third Item</a>
-                </div>
-              </div>
-              <input
-                type="date"
-                style="
-                  padding: 20px;
-                  margin: 10px;
-                  background: rgba(40, 16, 59, 0.95);
-                  color: rgb(255, 255, 255);
-                  border-radius: 0;
-                  border-style: none;
-                "
-              /><button
-                class="btn btn-primary text-center"
-                type="button"
-                style="padding: 20px; margin: 10px; background: #333333"
-              >
-                submit
-              </button>
-            </div> -->
             <div class="mb-3">
             <input
               class="form-control"
               type="text"
-              name="name"
-              placeholder="Name"
+              name="branch"
+              placeholder="Branch"
             />
           </div>
           <div class="mb-3">
@@ -131,8 +71,8 @@
             <input
               class="form-control"
               type="text"
-              name="name"
-              placeholder="Name"
+              name="sem"
+              placeholder="Sem"
             />
           </div>
           <div class="mb-3">
@@ -140,14 +80,14 @@
             <input
               class="form-control"
               type="text"
-              name="name"
-              placeholder="Name"
+              name="date"
+              placeholder="Date"
             />
           </div>
           <div class="mb-3">
             <button
               class="btn"
-              type="button"
+              type="submit"
               style="
                 background: #495057;
                 padding: 15px 30px;
@@ -158,7 +98,7 @@
                 font-size: 15px;
               "
             >
-              update</button
+              Submit</button
             >
           </form>
         </div>
