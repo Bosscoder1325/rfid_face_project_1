@@ -1,0 +1,34 @@
+{
+    "data":{
+        "date_val":{
+            "sem8":{
+                "branch":{
+                    "ISE":{
+                        "session1":{
+                            "1kt18is017":{
+                                "present": "true"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "student_info":{
+        "sem1":{
+            "ise":{
+                "1kt18is017":{
+                    "name":"Vish",
+                    "usn":"1kt18is017",
+                    "dept":"ISE"
+                }
+            }
+        }
+    },
+    "timetable":{}
+}
+
+
+
+
+
