@@ -247,22 +247,23 @@ def analyze_data():
         # date:date, s1:count, s2:count
         fig = px.bar(df, x="date", y=["s1", "s2"])
         fig.write_image("static/img/ses.png")
-        
+
         temp_dic = []
-        temp={'date':date,'session':['s1','s2']}
-        count = [0,0]
+        temp = {'date': date, 'session': ['s1', 's2']}
+        count = [0, 0]
         data = attend[branch][sem][date].keys()
         for j in data:
             if attend[branch][sem][date][j]['s1'] == True:
-                    count[0]+=1
+                count[0] += 1
 
             if attend[branch][sem][date][j]['s2'] == True:
-                    count[1]+=1
-            
-        temp.update({"count":count})
+                count[1] += 1
+
+        temp.update({"count": count})
         df = pd.DataFrame(temp)
         fig = px.pie(df, values='count', names='session')
         fig.write_image('static/img/pie.png')
+        return render_template("analyze_all_student.html")
 
     return render_template("analyze_all_student.html")
 
