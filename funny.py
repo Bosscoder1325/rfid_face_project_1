@@ -4,6 +4,7 @@ from flask import Flask, render_template, request, redirect
 import pyrebase
 import json
 import pandas as pd
+import plotly
 import plotly.graph_objects as go
 import plotly.express as px
 config = {
@@ -119,5 +120,7 @@ for i in dates:
 df = pd.DataFrame(main_list)
 # date:date, s1:count, s2:count
 print(df)
-fig = px.bar(df, x="date", y=["s1", "s2"], title="Long-Form Input")
-fig.write_image("static/img/water_vol.png", engine="kaleido")
+fig = px.bar(df, x="date", y=["s1", "s2"])
+fig.show()
+plotly.io.orca.config.save()
+fig.write_image("static/img/bill.png", engine="orca")
