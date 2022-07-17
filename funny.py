@@ -96,30 +96,31 @@ student_info = json.loads(json.dumps(data2))
 
 branch = 'cse'
 sem = 'sem5'
+date = '15-07-2022'
 
-dates = attend[branch][sem].keys()
-s1 = 0
-main_list = []
-for i in dates:
-    temp_dic = {}
-    usn = attend[branch][sem][i].keys()
-    for j in usn:
-        if attend[branch][sem][i][j]['s1'] == True:
-            if 's1' not in temp_dic.keys():
-                temp_dic.update({"date": i, 's1': 1, })
-            else:
-                temp_dic['s1'] += 1
-        if attend[branch][sem][i][j]['s2'] == True:
-            if 's2' not in temp_dic.keys():
-                temp_dic.update({"date": i, 's2': 1})
-            else:
-                temp_dic['s2'] += 1
-    main_list.append(temp_dic)
+data = attend[branch][sem][date].keys()
 
 
-df = pd.DataFrame(main_list)
-# date:date, s1:count, s2:count
-print(df)
-fig = px.bar(df, x="date", y=["s1", "s2"])
-fig.show()
-fig.write_image("static/img/bill.png")
+
+# dates = attend[branch][sem].keys()
+# s1 = 0
+# main_list = []
+# for i in dates:
+temp_dic = []
+temp={'date':date,'session':['s1','s2']}
+count = [0,0]
+for j in data:
+    if attend[branch][sem][date][j]['s1'] == True:
+            count[0]+=1
+
+    if attend[branch][sem][date][j]['s2'] == True:
+            count[1]+=1
+    
+temp.update({"count":count})
+df = pd.DataFrame(temp)
+fig = px.pie(df, values='count', names='session')
+fig.write_image('static/img/pie.png')
+# fig.write_image("static/img/bill.png")
+# count session
+# 3       s1
+# 5       s2
