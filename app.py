@@ -223,7 +223,7 @@ def analyze_data():
         branch = request.form.get("branch")
         sem = request.form.get("sem")
         date = request.form.get("date")
-
+        print(date)
         dates = attend[branch][sem].keys()
         s1 = 0
         main_list = []
