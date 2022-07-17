@@ -1,6 +1,11 @@
+
+from itertools import count
 from flask import Flask, render_template, request, redirect
 import pyrebase
 import json
+import pandas as pd
+import plotly.graph_objects as go
+import plotly.express as px
 config = {
     "apiKey": "AIzaSyAZoAADcMtseOtxeAh6jLcpH3or24ZhL8c",
     "authDomain": "rfid-aaea6.firebaseapp.com",
@@ -69,13 +74,50 @@ config = {
 # db.child('data').update(attend)
 
 
-data = [i.strip() for i in "{'usn': '1kt18cs004', 'name': 'Diwan', 'sem': 'sem5', 'branch': 'cse', 's1': 'True', 's2': 'True', 'date': '16-7-2022'}".strip().replace("{","").replace("}", "").replace("'", "").split(",")]
+# data = [i.strip() for i in "{'usn': '1kt18cs004', 'name': 'Diwan', 'sem': 'sem5', 'branch': 'cse', 's1': 'True', 's2': 'True', 'date': '16-7-2022'}".strip().replace("{","").replace("}", "").replace("'", "").split(",")]
 
-# data = [i.split(":") for i in data]
+# # data = [i.split(":") for i in data]
 
-for i in data:
-    if i.startswith('branch'):
-        temp = i.strip().split(":")
-        print(temp[1])
+# for i in data:
+#     if i.startswith('branch'):
+#         temp = i.strip().split(":")
+#         print(temp[1])
 
-# print(data)
+# # print(data)
+
+
+firebase = pyrebase.initialize_app(config)
+db = firebase.database()
+data1 = db.child("data").get().val()
+data2 = db.child("student_info").get().val()
+attend = json.loads(json.dumps(data1))
+student_info = json.loads(json.dumps(data2))
+
+branch = 'cse'
+sem = 'sem5'
+
+dates = attend[branch][sem].keys()
+s1 = 0
+main_list = []
+for i in dates:
+    temp_dic = {}
+    usn = attend[branch][sem][i].keys()
+    for j in usn:
+        if attend[branch][sem][i][j]['s1'] == True:
+            if 's1' not in temp_dic.keys():
+                temp_dic.update({"date": i, 's1': 1, })
+            else:
+                temp_dic['s1'] += 1
+        if attend[branch][sem][i][j]['s2'] == True:
+            if 's2' not in temp_dic.keys():
+                temp_dic.update({"date": i, 's2': 1})
+            else:
+                temp_dic['s2'] += 1
+    main_list.append(temp_dic)
+
+
+df = pd.DataFrame(main_list)
+# date:date, s1:count, s2:count
+print(df)
+fig = px.bar(df, x="date", y=["s1", "s2"], title="Long-Form Input")
+fig.write_image("static/img/water_vol.png", engine="kaleido")

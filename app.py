@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for
 import pyrebase
 import json
+import pandas as pd
+import plotly.graph_objects as go
+import plotly.express as px
 
 app = Flask(__name__)
 
@@ -54,6 +57,13 @@ def edit_student():
 
     return render_template('edit_student.html', data=current_dic)
     # return render_template('edit_student.html')
+
+
+@app.route('/logout', methods=['POST', 'GET'])
+def logout():
+    global session
+    session = False
+    return redirect('/login')
 
 
 @app.route('/', methods=['POST', 'GET'])
@@ -196,6 +206,49 @@ def delete_data():
 # # ‘/’ URL is bound with hello_world() function.
 # def hello_world():
 #     return render_template('index.html')
+
+
+@app.route('/analysis', methods=['POST', 'GET'])
+def analyze_data():
+    branch = sem = date = ""
+    firebase = pyrebase.initialize_app(config)
+    db = firebase.database()
+    data1 = db.child("data").get().val()
+    data2 = db.child("student_info").get().val()
+    attend = json.loads(json.dumps(data1))
+    student_info = json.loads(json.dumps(data2))
+
+    if request.method == "POST":
+        # getting input with name = fname in HTML form
+        branch = request.form.get("branch")
+        sem = request.form.get("sem")
+        date = request.form.get("date")
+
+        dates = attend[branch][sem].keys()
+        s1 = 0
+        main_list = []
+        for i in dates:
+            temp_dic = {}
+            usn = attend[branch][sem][i].keys()
+            for j in usn:
+                if attend[branch][sem][i][j]['s1'] == True:
+                    if 's1' not in temp_dic.keys():
+                        temp_dic.update({"date": i, 's1': 1, })
+                    else:
+                        temp_dic['s1'] += 1
+                if attend[branch][sem][i][j]['s2'] == True:
+                    if 's2' not in temp_dic.keys():
+                        temp_dic.update({"date": i, 's2': 1})
+                    else:
+                        temp_dic['s2'] += 1
+            main_list.append(temp_dic)
+
+        df = pd.DataFrame(main_list)
+        # date:date, s1:count, s2:count
+        fig = px.bar(df, x="date", y=["s1", "s2"])
+        fig.write_image("static/img/ses.png")
+
+    return render_template("analyze_all_student.html")
 
 
 # main driver function

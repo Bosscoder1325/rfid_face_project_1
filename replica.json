@@ -2,14 +2,82 @@
   "data": {
     "cse": {
       "sem5": {
-          "16-7-2022": {
+          "15-07-2022": {
+              "1kt18cs001": {
+                "s1": true,
+                "s2": true
+              },
+              "1kt18cs002": {
+                "s1": false,
+                "s2": false
+              },
+              "1kt18cs003": {
+                "s1": false,
+                "s2": true
+              },
+              "1kt18cs004": {
+                "s1": true,
+                "s2": true
+              },
+              "1kt18cs005": {
+                "s1": false,
+                "s2": true
+              },
               "1kt18cs011": {
+                "s1": true,
+                "s2": true
+              }
+            },
+            "16-07-2022": {
+              "1kt18cs001": {
+                "s1": false,
+                "s2": true
+              },
+              "1kt18cs002": {
+                "s1": false,
+                "s2": true
+              },
+              "1kt18cs003": {
+                "s1": true,
+                "s2": true
+              },
+              "1kt18cs005": {
                 "s1": false,
                 "s2": true
               },
               "1kt18cs004": {
                 "s1": false,
                 "s2": true
+              },
+              "1kt18cs011": {
+                "s1": true,
+                "s2": true
+              }
+            },
+            "17-07-2022": {
+              "1kt18cs001": {
+                "s1": true,
+                "s2": true
+              },
+              "1kt18cs002": {
+                "s1": false,
+                "s2": true
+              },
+              "1kt18cs003": {
+                "s1": false,
+                "s2": false
+              },
+              "1kt18cs005": {
+                "s1": false,
+                "s2": true
+              },
+              "1kt18cs004": {
+                "s1": false,
+                "s2": true
+              },
+              "1kt18cs011": {
+                "s1": false,
+                "s2": false
               }
             }
           }
@@ -25,10 +93,33 @@
           },
           "1kt18cs004": {
             "dept": "cse",
-            "name": "Diwan",
+            "name": "tony",
             "usn": "1kt18is004"
+          },
+          "1kt18cs001": {
+            "dept": "cse",
+            "name": "bruce",
+            "usn": "1kt18is001"
+          },
+          "1kt18cs002": {
+            "dept": "cse",
+            "name": "Google",
+            "usn": "1kt18is002"
+          },
+          "1kt18cs003": {
+            "dept": "cse",
+            "name": "Youtube",
+            "usn": "1kt18is003"
+          },
+          "1kt18cs005": {
+            "dept": "cse",
+            "name": "Alexa",
+            "usn": "1kt18is005"
           }
         }
       }
+    },
+    "creds":{
+      "cse":"abc"
     }
 }
