@@ -1,28 +1,123 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
     <title>attendance</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
-    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
-    <link rel="stylesheet" href="assets/css/Login-Red.css">
-</head>
+    <link
+      href="{{url_for('static', filename = 'bootstrap.min.css')}}"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    />
+    <link
+      href="{{url_for('static', filename = 'fonts/fontawesome-all.min.css')}}"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename = 'Contact-Form-Clean.css')}}"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename = 'Login-Form-Clean.css')}}"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename = 'Login-Red.css')}}"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
     <section class="contact-clean">
-        <form method="post" style="background: rgba(40,16,59,0.95);border-radius: 30px;">
-            <h2 class="text-center" style="color: rgb(217,218,230);">UPDATE DATA</h2>
-            <div class="mb-3"><input class="form-control" type="text" name="name" placeholder="Name"></div>
-            <div class="mb-3"><button class="btn" type="button" style="background: #495057;padding: 15px 30px;color: #ffffff;min-width: auto;width: auto;height: auto;font-size: 15px;">update</button><button class="btn" type="button" style="background: #495057;color: #ffffff;padding: 15px 30px;margin-left: 10px;min-width: auto;width: auto;height: auto;font-size: 15px;">cancel</button></div>
-        </form>
+      <form
+        action="{{url_for("edited")}}" method="post"
+        style="background: rgba(40, 16, 59, 0.95); border-radius: 30px"
+      >
+        <h2 class="text-center" style="color: rgb(217, 218, 230)">
+          UPDATE DATA
+        </h2>
+        <!-- <p>{{data}}</p> -->
+        <div class="mb-3">
+          <label for="usn">USN</label>
+          <input class="form-control" type="text" name="usn" value={{data["usn"]}}
+           disabled/>
+        </div>
+        <div class="mb-3">
+          <label for="name">NAME</label>
+          <input class="form-control" type="text" name="name"
+          value={{data["name"]}} disabled/>
+        </div>
+        <div class="mb-3">
+          <label for="sem">SEM</label>
+          <input class="form-control" type="text" name="sem"
+          value={{data["sem"]}} disabled/>
+        </div>
+        <div class="mb-3">
+          <label for="branch">BRANCH</label>
+          <input class="form-control" type="text" name="branch"
+          value={{data["branch"]}} disabled/>
+        </div>
+        <div class="mb-3">
+          <label for="s1">SESSION 1</label>
+          <input class="form-control" type="text" name="s1"
+          value={{data["s1"]}} />
+        </div>
+        <div class="mb-3">
+          <label for="s2">SESSION 2</label>
+          <input class="form-control" type="text" name="s2"
+          value={{data["s2"]}} />
+        </div>
+        <div class="mb-3">
+          <label for="date">DATE</label>
+          <input class="form-control" type="text" name="date"
+          value={{data["date"]}} disabled/>
+        </div>
+        <textarea type="text" name="all_data" style="display:none">{{data}}</textarea>
+        <div class="mb-3">
+          <button
+            class="btn"
+            name="submit"
+            type="submit"
+            style="
+              background: #495057;
+              padding: 15px 30px;
+              color: #ffffff;
+              min-width: auto;
+              width: auto;
+              height: auto;
+              font-size: 15px;
+            "
+          >
+            update</button>
+          <!-- <button
+            class="btn"
+            type="button"
+            style="
+              background: #495057;
+              color: #ffffff;
+              padding: 15px 30px;
+              margin-left: 10px;
+              min-width: auto;
+              width: auto;
+              height: auto;
+              font-size: 15px;
+            "
+          >
+            cancel
+          </button> -->
+        </div>
+      </form>
     </section>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/theme.js"></script>
-</body>
-
+    <script src="{{url_for('static', filename='bootstrap.min.js')}}"></script>
+    <script src="{{url_for('static', filename='theme.js')}}"></script>
+  </body>
 </html>

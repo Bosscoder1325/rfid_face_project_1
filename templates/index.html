@@ -34,6 +34,30 @@
       href="{{url_for('static', filename = 'Login-Red.css')}}"
       rel="stylesheet"
     />
+    <style>
+
+      .table{
+        border-spacing: 0;
+        margin: 1rem;
+        background-color: #f5f5f5;
+      }
+
+      table,th,td{
+        border: 1px solid black;
+      }
+
+      .table__row:nth-child(even){
+        background-color: #e5e5e5;
+      }
+
+      .table__header{
+        text-align: left;
+      }
+
+      .table__cell{
+        padding: 8px;
+      }
+    </style>
   </head>
 
   <body id="page-top">
@@ -141,18 +165,27 @@
               <p>data:{{data}}</p>
 
               <!-- table code -->
-              <table>
+              <table class="table">
                 
-                <tr>
+                <tr class="table__header">
                     {% for header in headings %}
-                    <th>{{header}}</th>
+                    <th class="table__cell">{{header}}</th>
                     {% endfor %}
                 </tr>
                 {% for row in rows %}
-                <tr>
+                <tr class="table__row">
                     {% for cell in row %}
-                    <td>{{cell}}</td>
+                    <td class="table__cell">{{cell}}</td>
                     {% endfor %}
+                    <form action="{{ url_for("edit_student")}}" method="post">
+                      <textarea type="text" name="data" style="display:none">{{row}}</textarea>
+                    <td><button name="submit" type="submit" class="btn btn-primary btn-sm">edit</button></td>
+                    </form>
+                    <form action="{{ url_for("delete_data")}}" method="post">
+                      <textarea type="text" name="data" style="display:none">{{row}}</textarea>
+                    <td><button name="submit" type="submit" class="btn btn-danger btn-sm">delete</button></td>
+                    </form>
+                    
                 </tr>
                 {% endfor %}
               </table>
@@ -164,5 +197,12 @@
 
     <script src="{{url_for('static', filename='bootstrap.min.js')}}"></script>
     <script src="{{url_for('static', filename='theme.js')}}"></script>
+
+
+      <script>
+      function myFunction() {
+        alert("I am an alert box!");
+      }
+    </script>
   </body>
 </html>
